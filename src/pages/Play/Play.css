@@ -1,0 +1,26 @@
+.quick_button{
+    display: inline;
+    padding-right: 1%;
+    padding-left: 1%;
+    font-size: 5vh;
+    font-weight: bolder;
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.quick_button:hover{
+    background-color: lightgray;
+}
+
+.quick_button_pad{
+    display: inline;
+    padding: 2%;
+}
+
+.show_on_episode{
+    text-align: center;
+    font-size: 3.5vh;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+}
