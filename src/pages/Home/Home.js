@@ -40,7 +40,7 @@ const Home = () => {
                 catch{setConnected(false);}
             }
             fetch();
-        }, 90000);
+        }, 30000);
         return () => clearInterval(interval);
     }, []);
 
