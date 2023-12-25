@@ -20,7 +20,7 @@ const Play = props => {
                 <div className="video_back" onClick={handleTrig}>{"<Back"}</div>
                 <div className="show_on_episode">{props.video.season+"x"+props.video.episode}</div>
                 <div className="video">
-                <iframe src={"https://drive.google.com/file/d/"+props.video.tag+"/preview"} width={"70%"} height={"100%"} allow="autoplay" title={props.video.season+"x"+props.video.episode}></iframe>
+                <iframe allowFullScreen="true" src={"https://drive.google.com/file/d/"+props.video.tag+"/preview"} width={"70%"} height={"100%"} allow="autoplay" title={props.video.season+"x"+props.video.episode}></iframe>
                 <br/><br/>
                 {
                     (props.video.season === 1 && props.video.episode === 1) ? "":(<div className="quick_button_pad"><div className="quick_button" onClick={ocb}>{"<"}</div></div>)
