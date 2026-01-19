@@ -4,7 +4,7 @@ import Play from "../Play/Play";
 import './Home.css';
 
 const Home = () => {
-    const server = "http://localhost:8000"
+    const server = "https://jlmyall.net/api"
     const [connected, setConnected] = useState(true);
     const [log, setLog] = useState(true);
     const [episodes, setEpisodes] = useState([]);
