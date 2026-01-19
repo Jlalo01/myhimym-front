@@ -4,7 +4,7 @@ import Play from "../Play/Play";
 import './Home.css';
 
 const Home = () => {
-    const server = "https://jlmyall.net/api"
+    const server = "http://localhost:8000"
     const [connected, setConnected] = useState(true);
     const [log, setLog] = useState(true);
     const [episodes, setEpisodes] = useState([]);
@@ -40,7 +40,7 @@ const Home = () => {
                 catch{setConnected(false);}
             }
             fetch();
-        }, 30000);
+        }, 90000);
         return () => clearInterval(interval);
     }, []);
 
@@ -79,7 +79,8 @@ const Home = () => {
     function seasonSelection(e){
         window.sessionStorage.setItem("onSeason", e.target.value);
         getSeasonEpisodes(e.target.value);
-        setEpisode("1");
+        if (e.target.value === "10"){setEpisode("Star Wars: Revenge of the Sith");}
+        else {setEpisode("1");}
     }
 
     function episodeSelection(e){
@@ -179,22 +180,26 @@ const Home = () => {
                         <option value="7">Season 7</option>
                         <option value="8">Season 8</option>
                         <option value="9">Season 9</option>
+                        <option value="10">Movies</option>
                     </select>
                     <br/>
                     <div className="home_season_select">Select Episode:</div>
                     <select name="episode" id="episode" value={onEpisode} onChange={episodeSelection}>
                         {
                             episodes.map((ep, i) => {
-                                return(
-                                    <option value={ep}>{"Episode "+ep}</option>
-                                );
+                                if (window.sessionStorage.getItem("onSeason") ===  "10"){
+                                    return(<option value={ep}>{ep}</option>);
+                                }
+                                else{
+                                    return(<option value={ep}>{"Episode "+ep}</option>);
+                                }
                             })
                         }
                     </select>
                     <br/>
                     <input type="submit" value="Play" />
                 </form>
-                <Play trig={trig} back={setTrig} l={backClick} n={nextClick} video={video} />
+                <Play trig={trig} back={setTrig} l={backClick} n={nextClick} movies={window.sessionStorage.getItem("onSeason")} video={video} />
             </div>
         );
     }
